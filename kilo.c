@@ -94,8 +94,12 @@ void editorProcessKeypress()
 void editorDrawRows()
 {
 	int y;
-	for( y=0; y<E.screen_rows; y++)
-		write( STDOUT_FILENO, "~\r\n", 3);
+	for( y=0; y<E.screen_rows; y++){
+		write( STDOUT_FILENO, "~", 1);
+
+		if( y < E.screen_rows-1 )
+			write( STDOUT_FILENO, "\r\n", 2);
+	}
 }
 
 void editorRefreshScreen()
