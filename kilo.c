@@ -1,4 +1,4 @@
-/*** header files ***/ 
+/****  header files  ****/ 
 #include <asm-generic/ioctls.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -9,7 +9,7 @@
 #include <errno.h>
 #include <string.h>
 
-/*** data ***/ 
+/****  data  ****/ 
 
 struct editorConfig
 {
@@ -19,10 +19,10 @@ struct editorConfig
 };
 struct editorConfig E;
 
-/*** defines ***/ 
+/****  defines  ****/ 
 #define CTRL_KEY(k) ((k) & 0x1f)
 
-/*** terminal ***/ 
+/****  terminal  ****/ 
 void die( const char *s )
 {
 	write( STDOUT_FILENO, "\x1b[2J", 4 );
@@ -75,7 +75,7 @@ int getWindowSize( int *rows, int *cols )
 	return 0;
 }
 
-/**** append buffer ****/ 
+/***** append buffer *****/ 
 
 struct abuf{
 	char *b;
@@ -99,7 +99,7 @@ void abFree( struct abuf *ab )
 	free( ab->b );
 }
 
-/*** input ***/ 
+/****  input  ****/ 
 
 void editorProcessKeypress()
 {
@@ -114,7 +114,7 @@ void editorProcessKeypress()
 	}
 }
 
-/*** output ***/ 
+/****  output  ****/ 
 
 void editorDrawRows()
 {
@@ -138,7 +138,7 @@ void editorRefreshScreen()
 }
 
 
-/*** init ***/ 
+/****  init  ****/ 
 
 void initEditor()
 {
